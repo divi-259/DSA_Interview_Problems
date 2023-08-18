@@ -43,19 +43,19 @@ class Solution {
         for(int i=0; i<inorder.length; i++) {
             hmap.put(inorder[i], i); // to get the index of any node in inorder array
         }
-        return helper(inorder, 0, inorder.length, preorder);
+        return helper( 0, inorder.length, preorder);
         
     }
 
-    private TreeNode helper(int[] inorder, int left, int right, int[] preorder) {
+    private TreeNode helper(int left, int right, int[] preorder) {
         if(left>right || preIndex>=preorder.length)
             return null;
         TreeNode root = new TreeNode(preorder[preIndex]); // first element of preorder will give the root node
         int curr = preorder[preIndex];
         // populate left and right
         preIndex++;
-        root.left = helper(inorder, left, hmap.get(curr)-1, preorder);
-        root.right = helper(inorder, hmap.get(curr)+1, right, preorder);
+        root.left = helper(left, hmap.get(curr)-1, preorder);
+        root.right = helper(hmap.get(curr)+1, right, preorder);
         return root;
     }
 }
