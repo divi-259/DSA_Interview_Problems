@@ -7,6 +7,10 @@ Solution Approach: Get the sum of all rows and all columns in rowsum and colsum 
 Get the maxsum value in both of them, get the total operations by getting the difference for all the
 rowsum's from the max value sum of the array.
 
+Imp: If you can make all rows have the same sum, then all columns will automatically have the same sum, and vice versa. 
+This is due to the conservation of elements in the matrix.
+This is because you are only redistributing the elements among the rows, not changing their values. 
+
 */
 
 /* ------------CODE---------------- */
